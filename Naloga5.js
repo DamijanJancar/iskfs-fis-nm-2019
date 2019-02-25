@@ -14,6 +14,8 @@ var board = new firmata.Board("/dev/ttyACM0", function(){
     board.pinMode(2, board.MODES.OUTPUT); // pin za smer na H-mostu
     console.log("Aktiviramo pin 3");
     board.pinMode(3, board.MODES.PWM); // Pulse Width Modulation - hitrost
+    console.log("Omogočimo Pin 7 kot vhod");
+    board.pinMode(7, board.MODES.INPUT);
 });
 
 function handler(req, res) {
@@ -32,7 +34,7 @@ http.listen(8080); // strežnik bo poslušal na vratih 8080
 
 var želenaVrednost = 0; // želeno vrednost postavimo na 0
 var dejanskaVrednost = 0; // dejansko vrednost postavimo na 0
-var faktor =0.1; // faktor, ki določa hitrost doseganja želenega stanja
+var faktor =0.6; // faktor, ki določa hitrost doseganja želenega stanja
 var pwm = 0;
 
 var kontrolniAlgoritemVključen = 0; // spremenljivka, ki določa ali je ctrl. alg. vključen
@@ -74,7 +76,7 @@ function kontrolniAlgoritem () {
     if (pwm > 0) {board.digitalWrite(2,0)}; // določimo smer če je > 0
     if (pwm < 0) {board.digitalWrite(2,1)}; // določimo smer če je < 0
     board.analogWrite(3, Math.abs(pwm)); // zapišemo abs vrednost na pin 3
-    if (dejanskaVrednost < 200 || dejanskaVrednost > 850) {
+    if (dejanskaVrednost < 180 || dejanskaVrednost > 830) {
         stopKontrolniAlgoritem();
     }
 }

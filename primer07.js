@@ -10,7 +10,7 @@ var board = new firmata.Board("/dev/ttyACM0", function(){
     console.log("Aktiviramo Pin 13");
     board.pinMode(13, board.MODES.OUTPUT); // pin13 kot izhod
     console.log("Omogočimo Pin 2 kot vhod");
-    board.pinMode(2, board.MODES.INPUT);
+    board.pinMode(7, board.MODES.INPUT);
 });
 
 function handler(req, res) {
@@ -40,7 +40,7 @@ io.sockets.on("connection", function(socket) {
     
 }); // konec "sockets.on connection"
 
-board.digitalRead(2, function(value) {
+board.digitalRead(7, function(value) {
     if (value == 0) {
         console.log("LED izklopljena");
         board.digitalWrite(13, board.LOW);

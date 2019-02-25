@@ -26,7 +26,7 @@ function log(sporočilo) {
 
 divZaIzpis.innerHTML += log("Pritisnite tipko na vezju");
 
-var socket = io.connect("192.168.1.207:8080"); // povezava preko vtičnika
+var socket = io.connect("192.168.1.204:8080"); // povezava preko vtičnika
 
 socket.on("sporočiloKlientu", function (sporočilo){
     divZaIzpis.innerHTML += log(sporočilo); // dodamo sporočilo

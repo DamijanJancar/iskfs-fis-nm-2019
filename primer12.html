@@ -73,7 +73,7 @@ function load() { // funkcija ki se požene, ko odpremo stran
     
 }
 
-var socket = io.connect("192.168.1.207:8080"); // povezava preko "socket"
+var socket = io.connect("192.168.1.204:8080"); // povezava preko "socket"
 
 socket.on("sporočiloKlientu", function (spo) {
     log(spo); // dodamo sporočilo v div
