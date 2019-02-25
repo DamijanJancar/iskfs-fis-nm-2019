@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<meta charset = utf8>
+<html>
+<head>
+    <title>Primer z gumbi 4</title>
+    <style>
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        width:230px;
+        padding: 15px 32px;
+        text-align: center;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>    
+</head>
+
+
+
+<body>
+
+<button id="gumbPrižgi1" class="button" onClick="prižgi1()">Prižgi Zeleno</button>
+<button id="gumbUgasni1" class="button" onClick="ugasni1()">Ugasni Zeleno</button>
+<br>
+<button id="gumbPrižgi2" class="button" onClick="prižgi2()">Prižgi Oranžno</button>
+<button id="gumbUgasni2" class="button" onClick="ugasni2()">Ugasni Oranžno</button>
+<br>
+<button id="gumbPrižgi3" class="button" onClick="prižgi3()">Prižgi Modro</button>
+<button id="gumbUgasni3" class="button" onClick="ugasni3()">Ugasni Modro</button>
+<br>
+<button id="gumbPrižgi4" class="button" onClick="prižgi4()">Prižgi Rdečo</button>
+<button id="gumbUgasni4" class="button" onClick="ugasni4()">Ugasni Rdečo</button>
+<br>
+<button id="gumbPrižgi5" class="button" onClick="prižgi5()">Prižgi Vse</button>
+<button id="gumbUgasni5" class="button" onClick="ugasni5()">Ugasni Vse</button>
+<br>
+
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+<script type="text/javascript">
+
+var socket = io.connect("192.168.1.207:8080"); // povez. prek vtičnika
+
+function prižgi1 () {
+    socket.emit("ukazArduinu", 1); // na strežnik pošljem 1
+}
+
+function ugasni1 () {
+    socket.emit("ukazArduinu", 0); // na strežnik pošljem 0
+}
+
+function prižgi2 () {
+    socket.emit("ukazArduinu", 3); // na strežnik pošljem 1
+}
+
+function ugasni2 () {
+    socket.emit("ukazArduinu", 2); // na strežnik pošljem 0
+}
+
+
+function prižgi3 () {
+    socket.emit("ukazArduinu", 5); // na strežnik pošljem 1
+}
+
+function ugasni3 () {
+    socket.emit("ukazArduinu", 4); // na strežnik pošljem 0
+}
+
+function prižgi4 () {
+    socket.emit("ukazArduinu", 7); // na strežnik pošljem 1
+}
+
+function ugasni4 () {
+    socket.emit("ukazArduinu", 6); // na strežnik pošljem 0
+}
+
+
+function prižgi5 () {
+    socket.emit("ukazArduinu", 9); // na strežnik pošljem 1
+}
+
+function ugasni5 () {
+    socket.emit("ukazArduinu", 8); // na strežnik pošljem 0
+}
+
+
+
+</script>
+    
+</body>
+
+</html>
